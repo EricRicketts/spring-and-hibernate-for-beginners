@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="practice-activity-1-inversion-of-control-with-xml" />
+        <module name="spring-inversion-of-control-part2" />
+        <module name="code-demo-rough-prototype-part1" />
+        <module name="spring-inversion-of-control-part1" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
