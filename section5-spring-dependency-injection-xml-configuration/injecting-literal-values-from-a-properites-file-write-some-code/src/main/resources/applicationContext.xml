@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"/>
+    <bean id="myFortuneService" class="org.example.services.HappyFortuneService"/>
+    <bean id="baseballCoach" class="org.example.model.BaseballCoach">
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+    <bean id="trackCoach" class="org.example.model.TrackCoach">
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+    <bean id="cricketCoach" class="org.example.model.CricketCoach">
+        <property name="fortuneService" ref="myFortuneService" />
+        <property name="emailAddress" value="${foo.email}" />
+        <property name="team" value="${foo.team}" />
+    </bean>
+</beans>
