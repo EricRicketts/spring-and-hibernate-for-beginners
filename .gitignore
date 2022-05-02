@@ -23,6 +23,6 @@
 hs_err_pid*
 # do not include executables and .idea directories
 **/target/**
-*.idea/**
+.idea/
 # exclude author's code
 **/chads_code/**
