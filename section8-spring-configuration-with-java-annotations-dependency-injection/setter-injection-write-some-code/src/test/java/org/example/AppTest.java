@@ -1,20 +1,30 @@
 package org.example;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.example.model.TennisCoach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration("/applicationContext.xml")
+public class AppTest {
+    ApplicationContext context;
+    String expected;
+    TennisCoach tennisCoach;
+    @BeforeEach
+    public void setUp() {
+        context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        tennisCoach = context.getBean("tennisCoach", TennisCoach.class);
+    }
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testSetterInjectionOnTennisCoach() {
+        expected = "Today is your lucky day!";
+        assertEquals(expected, tennisCoach.getDailyFortune());
     }
 }
